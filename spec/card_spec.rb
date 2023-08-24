@@ -41,13 +41,19 @@ end
 
 # en este ejercicio, vamos a recibir dos argumentos que me lanzaran error que no existe el metodo rank y suit, por lo que debemos crearlos en la clase card de arriba
 RSpec.describe 'Card' do
+  # un hook es una pieza de codigo que se ejecuta automaticamente en un punto especifico del ciclo de vida de un test, en este caso el before hook,
+  # se ejecuta antes de cada example (before-example-before-example) y nos ayuda a mentener nuestro codigo DRY. 
+  before do
+    # las variables de instancia nos ayudan a persistir datos que de otra manera se perderian al finalizar el bloque de codigo en el que se encuentran,
+    # en este caso tendremos @card disponible en cada example
+    @card = Card.new('Ace', 'Spades')
+  end
+
   it 'has a rank' do
-    card = Card.new('Ace', 'Spades')
-    expect(card.rank).to eq('Ace')
+    expect(@card.rank).to eq('Ace')
   end
 
   it 'has a suit' do
-    card = Card.new('Ace', 'Spades')
-    expect(card.suit).to eq('Spades')
+    expect(@card.suit).to eq('Spades')
   end
 end

@@ -1,3 +1,15 @@
+# 1. los failures se resuelven uno a uno, en este caso primero debemos crear la clase Card y luego corremos el test para ver si pasa ese error
+class Card
+  # 3. ahora nos apare el error NoMethodError: undefined method `type' for #<Card:0x00007f9a927344c8> para este caso debemos crear el reader
+  attr_reader :type
+  # 2. ahora nos sale el siguiente error ArgumentError: wrong number of arguments (given 1, expected 0), en este caso pasamos un argumento en el spec pero no pedimos 
+  # ninguno en la clase card, por lo que debemos agregar un argumento a la clase card
+  def initialize  (type)
+    # 4. ahora nos sale el error Failure/Error: expect(card.type).to eq('Ace of Spades') expected: "Ace of Spades" got: nil esto lo solucionamos agregando una 
+    # variable de instancia asignandole el argumento que recibimos en el metodo initialize y con esto nos pasa el example
+    @type = type
+  end
+end
 # el metodo "describe" como su nombre lo sugiere, describe que es lo que estamos testiando, en este caso la clase "Card", 
 # recibe como parametro un string con el nombre de la clase que estamos testeando, y un bloque de codigo que contiene los test que queremos realizar delimitados
 # dentro de un do      end. en el ecosistema de Rspec un tes es llamado un example, un example de como debe funcionar. tambien podemos agrupar examples

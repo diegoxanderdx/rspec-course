@@ -51,10 +51,17 @@ RSpec.describe 'Card' do
   # end
 
   # un metodo helper es un metodo que nos ayuda a mantener nuestro codigo DRY, en este caso el metodo card nos ayuda a crear una instancia de la clase Card
-  def card
-    Card.new('Ace', 'Spades')
-  end
-
+  # def card
+  #   Card.new('Ace', 'Spades')
+  # end
+  # para el metodo let debemos entender el concepto de memoization, que no yendo lejos es un caching de un valor, que es diciendolo de forma sencilla, cuando 
+  # la maquina se encuentra con un mismo problema por resolver, recuerda la solucion y dice que no va a gastar procesamiento en resolverlo de nuevo, sino que
+  # va a usar la solucion que ya tiene guardada en memoria. en este caso el metodo let nos ayuda a crear una instancia de la clase Card y a guardarla en memoria
+  # la sintaxis del metodo let es la siguiente: let(:nombre_de_la_variable) { valor_de_la_variable } el nombre de la vasriable debe ser un simbolo y el valor de la variable
+  # puede ser cualquier cosa, un objeto, un string, un numero, un array, un hash, un metodo, etc. en este caso el valor de la variable es un objeto de la clase Card va a ser 
+  # un objeto nuevo de la clase Card
+  let(:card) { Card.new('Ace', 'Spades') }
+  
   it 'has a rank an it can change' do
     expect(card.rank).to eq('Ace')
     # supongamos que queremos cambiar el valor de rank a 'Queen' para este example y crear una nueva expect, pero con el metodo anterior se llama 

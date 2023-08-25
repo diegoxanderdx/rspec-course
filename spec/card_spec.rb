@@ -74,4 +74,11 @@ RSpec.describe 'Card' do
   it 'has a suit' do
     expect(card.suit).to eq('Spades')
   end
+
+  it 'has a custom error message' do
+    # un mensaje de error personalizado nos ayuda a entender mejor que es lo que esta fallando en nuestro test, en este caso el mensaje de error es el siguiente:
+    card.suit = 'Nonsense'
+    comparison = 'Spades'
+    expect(card.suit).to eq(comparison), "Hey, I expected #{comparison} but I got #{card.suit} instead!"
+  end
 end

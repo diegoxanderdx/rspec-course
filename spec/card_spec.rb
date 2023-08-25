@@ -43,17 +43,22 @@ end
 RSpec.describe 'Card' do
   # un hook es una pieza de codigo que se ejecuta automaticamente en un punto especifico del ciclo de vida de un test, en este caso el before hook,
   # se ejecuta antes de cada example (before-example-before-example) y nos ayuda a mentener nuestro codigo DRY. 
-  before do
-    # las variables de instancia nos ayudan a persistir datos que de otra manera se perderian al finalizar el bloque de codigo en el que se encuentran,
-    # en este caso tendremos @card disponible en cada example
-    @card = Card.new('Ace', 'Spades')
+  # before do
+  #   # las variables de instancia nos ayudan a persistir datos que de otra manera se perderian al finalizar el bloque de codigo en el que se encuentran,
+  #   # en este caso tendremos @card disponible en cada example
+  #   @card = Card.new('Ace', 'Spades')
+  # end
+
+  # un metodo helper es un metodo que nos ayuda a mantener nuestro codigo DRY, en este caso el metodo card nos ayuda a crear una instancia de la clase Card
+  def card
+    Card.new('Ace', 'Spades')
   end
 
   it 'has a rank' do
-    expect(@card.rank).to eq('Ace')
+    expect(card.rank).to eq('Ace')
   end
 
   it 'has a suit' do
-    expect(@card.suit).to eq('Spades')
+    expect(card.suit).to eq('Spades')
   end
 end

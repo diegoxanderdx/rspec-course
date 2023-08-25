@@ -32,7 +32,8 @@
 
 # ----------------------------------------- DESDE ACA COMIENZA MULTIPLE EXAMPLES-----------------------------------------
 class Card
-  attr_reader :rank, :suit
+  # para que podamos tener acceso de escritura y lectura a los atributos de la clase Card, debemos cambiar a los metodos attr_accessor :rank, :suit
+  attr_accessor :rank, :suit
   def initialize (rank, suit)
     @rank = rank
     @suit = suit
@@ -54,8 +55,13 @@ RSpec.describe 'Card' do
     Card.new('Ace', 'Spades')
   end
 
-  it 'has a rank' do
+  it 'has a rank an it can change' do
     expect(card.rank).to eq('Ace')
+    # supongamos que queremos cambiar el valor de rank a 'Queen' para este example y crear una nueva expect, pero con el metodo anterior se llama 
+    # el metodo card cada vez que aparece la palabra card y se escriben los valores que hay dentro del metodo card por lo que en las siguientes lineas se llamara
+    # dos veces y no asertaremos con el nuevo valor "Queen" sino con el valor "Ace" que contiene el metodo card
+    card.rank = 'Queen'
+    expect(card.rank).to eq('Queen')
   end
 
   it 'has a suit' do

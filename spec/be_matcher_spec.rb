@@ -1,4 +1,4 @@
-# be matcher para verificar booleanos,en ruby solo existen dos valores falsy, que son false y nil, todo lo demas es truthy
+# be matcher para verificar booleanos,en ruby solo existen dos valores falsy, que son false y nil, todo lo demas es truthy verificamos:
 RSpec.describe 'be matcher' do
   it 'can be used for truthiness' do
     expect(true).to be_truthy

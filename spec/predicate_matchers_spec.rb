@@ -8,7 +8,7 @@ RSpec.describe 'predicate methods and predicate matchers' do
 
   it 'can be tested with predicate matchers' do
     # los predicate matchers pueden ser usados con los metodos que devuelven un valor booleano
-    el predicate matcher va unido al metodo con un guion bajo (_)
+    # el predicate matcher va unido al metodo con un guion bajo (_)
     expect(16 / 2).to be_even
     expect(15).to be_odd
     expect(0).to be_zero

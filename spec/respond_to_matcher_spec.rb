@@ -1,4 +1,4 @@
-# respond_to matcher verifica que un objeto pueda responder a un método específico, con o sin argumentos.
+# respond_to matcher verifica que un objeto pueda responder a un método específico, con o sin argumentos, y si es con argumentos, con cuantos argumentos
 
 class HotChocolate 
   def drink; end

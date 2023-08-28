@@ -1,4 +1,4 @@
-el raise_error matcher busca que se levante un error, la sintaxis cambia en el expect que se envia un bloque de codigo oneliner dentro de {}
+# el raise_error matcher busca que se levante un error, la sintaxis cambia en el expect que se envia un bloque de codigo oneliner dentro de {}
 
 RSpec.describe 'raise_error matcher' do
   def some_method

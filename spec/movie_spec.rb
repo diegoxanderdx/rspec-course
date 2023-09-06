@@ -42,6 +42,7 @@ movie = Movie.new(actor)
 movie.start_shooting
 
 RSpec.describe Movie do
+  # nuestro doble sera el stuntman que recibe los metodos de actor, los implementa y devuelve un valor que puede ser difetente al original
   let(:stuntman) { double("Mr. Danger", ready?: true, act: "Any string at all", fall_off_ladder: "Sure! Let's do it", light_on_fire: true) }
   subject { described_class.new(stuntman) }
 

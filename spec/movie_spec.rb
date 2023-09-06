@@ -33,6 +33,8 @@ class Movie
       actor.act
       actor.fall_off_ladder
       actor.light_on_fire
+      # en este metodo, vamos a llamar de nuevo el metodo act
+      actor.act
     end
   end
 end
@@ -48,10 +50,15 @@ RSpec.describe Movie do
 
   describe "#start_shooting method" do
     it "expects an actor to do 3 actions" do
-      expect(stuntman).to receive(:ready?)
-      expect(stuntman).to receive(:act)
-      expect(stuntman).to receive(:fall_off_ladder)
-      expect(stuntman).to receive(:light_on_fire)
+      # podemos contar las veces que se llama un metodo puede ser con once, twice, exactly(n).times, at_least(n).times, at_most(n).times
+      expect(stuntman).to receive(:ready?).exactly(1).times
+      expect(stuntman).to receive(:act).exactly(2).times
+      expect(stuntman).to receive(:fall_off_ladder).at_least(1).times
+      expect(stuntman).to receive(:light_on_fire).at_most(1).times
+      # expect(stuntman).to receive(:ready?)
+      # expect(stuntman).to receive(:act)
+      # expect(stuntman).to receive(:fall_off_ladder)
+      # expect(stuntman).to receive(:light_on_fire)
       subject.start_shooting
     end
   end
